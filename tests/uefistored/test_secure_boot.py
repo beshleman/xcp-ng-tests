@@ -100,6 +100,7 @@ class TestGuestLinuxUEFISecureBoot:
             # interfere with future tests, so remove them
             print('> remove guest SB messages')
             vm.rm_messages(VM_SECURE_BOOT_FAILED)
+            snapshot.destroy()
 
     def test_boot_succeeds_when_PK_set_and_sb_disabled(self, imported_sb_vm):
         vm = imported_sb_vm
@@ -191,6 +192,7 @@ class TestGuestWindowsUEFISecureBoot:
             # interfere with future tests, so remove them
             print('> remove guest SB messages')
             vm.rm_messages(VM_SECURE_BOOT_FAILED)
+            snapshot.destroy()
 
     def test_windows_fails(self, imported_sb_vm):
         vm = imported_sb_vm
