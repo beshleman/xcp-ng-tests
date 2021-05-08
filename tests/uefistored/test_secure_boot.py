@@ -26,9 +26,12 @@ def check_sb_succeeded(vm):
 
 
 def sign_efi_bins(vm, db):
-    '''Boots the VM if it is halted, signs the bootloader, and halts the
+    """
+    Sign all EFI bins found on ESP.
+
+    Boots the VM if it is halted, signs the bootloader, and halts the
     VM again (if halted was its original state).
-    '''
+    """
     shutdown = not vm.is_running()
     if shutdown:
         vm.start()
